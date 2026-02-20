@@ -67,7 +67,7 @@ def main():
         print(f"Error: {input_file} not found. Make sure the file exists.")
         sys.exit(1)
 
-    # Detect toxic columns (handle typo 'servere_toxic')
+    # Detect toxic columns 
     expected_cols = ["toxic", "severe_toxic", "obscene", "threat", "insult", "identity_hate"]
     actual_cols = df.columns.str.lower().str.replace(' ', '_')
 
@@ -101,9 +101,7 @@ def main():
     df.to_csv(output_file, index=False)
     print(f"Stage 1 complete. Output saved to {output_file}")
 
-    # -----------------------------
     # Generate graphs
-    # -----------------------------
     sns.set(style="whitegrid")
 
     # 1. Toxic label distribution
