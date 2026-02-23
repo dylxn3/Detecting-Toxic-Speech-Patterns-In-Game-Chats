@@ -1,2 +1,32 @@
 data/train.csv
 stage1_output.csv
+
+# Virtual Environment
+venv/
+env/
+.venv/
+ENV/
+virtualenv/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE settings (optional)
+.vscode/
+.idea/
+
+# Package installer files
+*.egg-info/
+dist/
+build/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
