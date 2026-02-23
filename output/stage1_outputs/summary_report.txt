@@ -1,0 +1,22 @@
+STAGE 1 PROCESSING SUMMARY
+========================================
+
+Total comments processed: 159,571
+Toxic comments: 16,225 (10.17%)
+Non-toxic comments: 143,346 (89.83%)
+
+FAILURE PHENOMENA DETECTED:
+------------------------------
+excessive_punctuation: 15,627 (9.79%)
+repeated_letters: 12,912 (8.09%)
+slang: 1,710 (1.07%)
+all_caps: 1,702 (1.07%)
+
+FILES GENERATED:
+------------------------------
+stage1_output.csv - Main data file with cleaned text and tags
+tag_statistics.csv - Statistics for each failure phenomenon
+toxic_label_distribution.png - Bar chart of toxic vs non-toxic
+failure_tags_distribution.png - Distribution of all failure tags
+phenomena_by_toxicity.png - Stacked bar chart of tags by toxicity
+summary_report.txt - This summary file
