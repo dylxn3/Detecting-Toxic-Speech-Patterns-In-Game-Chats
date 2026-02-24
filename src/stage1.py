@@ -66,27 +66,59 @@ def main():
 
     print(f"Loaded {len(df)} comments from {input_file}")
     
-    # Detect toxic columns 
-    expected_cols = ["toxic", "severe_toxic", "obscene", "threat", "insult", "identity_hate"]
-    actual_cols = df.columns.str.lower().str.replace(' ', '_')
+    # ============================================================
+    # FIXED: Proper toxicity column detection
+    # ============================================================
+    print("\n" + "="*60)
+    print("TOXICITY COLUMN DETECTION")
+    print("="*60)
+    
+    print(f"\nAvailable columns in dataset: {list(df.columns)}")
 
+    # Define expected toxicity columns
+    expected_toxic_cols = ["toxic", "severe_toxic", "obscene", "threat", "insult", "identity_hate"]
+
+    # Find which of these columns actually exist in the dataframe
     toxic_columns = []
-    for col in expected_cols:
-        matches = [c for c in actual_cols if c.startswith(col[:4])]
-        if matches:
-            toxic_columns.append(matches[0])
-        else:
-            print(f"Warning: column '{col}' not found in CSV, adding it as 0s")
-            df[col] = 0
+    for col in expected_toxic_cols:
+        if col in df.columns:
             toxic_columns.append(col)
+            print(f"✓ Found toxicity column: '{col}'")
+        else:
+            # Try case-insensitive match
+            matches = [c for c in df.columns if c.lower() == col.lower()]
+            if matches:
+                toxic_columns.append(matches[0])
+                print(f"✓ Found toxicity column (case-insensitive): '{matches[0]}'")
+            else:
+                print(f"✗ Expected column '{col}' not found - creating with 0s")
+                df[col] = 0
+                toxic_columns.append(col)
+
+    # If no toxicity columns found, show error
+    if not toxic_columns or all(df[col].sum() == 0 for col in toxic_columns):
+        print("\n⚠️  CRITICAL WARNING: No toxicity columns found or all are zero!")
+        print("Check your dataset columns. This will result in all comments being labeled as non-toxic.")
+        print("Available columns:", list(df.columns))
+        response = input("Continue anyway? (yes/no): ")
+        if response.lower() != 'yes':
+            sys.exit(1)
 
     # Aggregate toxicity into one column (1 if any toxicity type is present)
     df["toxic_label"] = df[toxic_columns].max(axis=1)
     
     # Print toxicity distribution
     toxic_count = df["toxic_label"].sum()
-    print(f"Toxic comments: {toxic_count} ({toxic_count/len(df)*100:.2f}%)")
-    print(f"Non-toxic comments: {len(df)-toxic_count} ({(len(df)-toxic_count)/len(df)*100:.2f}%)")
+    print(f"\n✅ Toxicity distribution:")
+    print(f"  Toxic (1): {toxic_count:,} ({toxic_count/len(df)*100:.2f}%)")
+    print(f"  Non-toxic (0): {len(df)-toxic_count:,} ({(len(df)-toxic_count)/len(df)*100:.2f}%)")
+
+    # Show breakdown by toxicity type
+    print(f"\n📊 Breakdown by toxicity type:")
+    for col in toxic_columns:
+        if col in df.columns:
+            count = df[col].sum()
+            print(f"  {col}: {count:,} ({count/len(df)*100:.2f}%)")
 
     # CRITICAL FIX: Detect tags on ORIGINAL text BEFORE cleaning
     text_column = "comment_text"
@@ -207,7 +239,14 @@ def main():
         f.write(f"Toxic comments: {toxic_count:,} ({toxic_count/len(df)*100:.2f}%)\n")
         f.write(f"Non-toxic comments: {len(df)-toxic_count:,} ({(len(df)-toxic_count)/len(df)*100:.2f}%)\n\n")
         
-        f.write("FAILURE PHENOMENA DETECTED:\n")
+        f.write("BREAKDOWN BY TOXICITY TYPE:\n")
+        f.write("-"*30 + "\n")
+        for col in toxic_columns:
+            if col in df.columns:
+                count = df[col].sum()
+                f.write(f"{col}: {count:,} ({count/len(df)*100:.2f}%)\n")
+        
+        f.write("\nFAILURE PHENOMENA DETECTED:\n")
         f.write("-"*30 + "\n")
         for tag, count in tag_counts.most_common():
             f.write(f"{tag}: {count:,} ({count/len(df)*100:.2f}%)\n")

@@ -5,6 +5,15 @@ Total comments processed: 159,571
 Toxic comments: 16,225 (10.17%)
 Non-toxic comments: 143,346 (89.83%)
 
+BREAKDOWN BY TOXICITY TYPE:
+------------------------------
+toxic: 15,294 (9.58%)
+severe_toxic: 1,595 (1.00%)
+obscene: 8,449 (5.29%)
+threat: 478 (0.30%)
+insult: 7,877 (4.94%)
+identity_hate: 1,405 (0.88%)
+
 FAILURE PHENOMENA DETECTED:
 ------------------------------
 excessive_punctuation: 15,627 (9.79%)
