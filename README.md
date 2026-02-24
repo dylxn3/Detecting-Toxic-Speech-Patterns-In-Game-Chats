@@ -103,20 +103,31 @@ BERT significantly outperforms TF-IDF, reducing false positives from **1,661 to 
 - Python 3.8+
 - pip (Python package manager)
 
-### Setup
+## Setup Instructions
 
-1. **Clone the repository**
-  git clone https://github.com/yourusername/Detecting-Toxic-Speech-Patterns-In-Game-Chats.git
-  cd Detecting-Toxic-Speech-Patterns-In-Game-Chats
+### 1. Clone the repository
 
-2. **Create VENV**
-  python -m venv venv
-  source venv/bin/activate  # On Windows: venv\Scripts\activatE
+```bash
+git clone https://github.com/yourusername/Detecting-Toxic-Speech-Patterns-In-Game-Chats.git
+cd Detecting-Toxic-Speech-Patterns-In-Game-Chats
+```
 
-3. Install Dependencies
-  pip install -r requirements.txt
+### 2. Create Virtual Environment
 
-4. Download Dataset
-  Place the Jigsaw Toxic Comment dataset (train.csv) in the data/ folder
-  Dataset available from Kaggle
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
 
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Download Dataset
+
+Place the Jigsaw Toxic Comment dataset (`train.csv`) in the `data/` folder.
+
+Dataset available from Kaggle
+```
