@@ -26,32 +26,6 @@ This research investigates the effectiveness of Natural Language Processing (NLP
 | O4 | Visualize toxicity trends and classification outcomes | Stage 3 |
 | O5 | Propose lightweight intervention strategies | Thesis Paper |
 
----
-
-## Project Structure
-Detecting-Toxic-Speech-Patterns-In-Game-Chats/
-│
-├── src/
-│ ├── stage1.py # Data preprocessing & failure tag detection
-│ ├── stage2.py # Model evaluation (BERT vs TF-IDF)
-│ └── stage3.py # Linguistic pattern analysis & visualization
-│
-├── data/
-│ └── train.csv # Jigsaw Toxic Comment Dataset
-│
-├── output/
-│ ├── stage1_outputs/ # Processed data with failure tags
-│ ├── stage2_outputs/ # Model predictions & metrics
-│ └── stage3_outputs/ # Linguistic analysis & visualizations
-│
-├── thesis/
-│ └── CS4490Z_Thesis.pdf # Final thesis document
-│
-├── requirements.txt # Python dependencies
-└── README.md # This file
-
-
----
 
 ## Pipeline Overview
 
