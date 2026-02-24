@@ -1,0 +1,2 @@
+total_samples,toxic_samples,toxic_ratio,tfidf_misclassified,bert_misclassified,tfidf_misclassification_rate,bert_misclassification_rate,both_correct,both_wrong,tfidf_only_correct,bert_only_correct
+31915,3245,0.10167632774557418,2108,542,0.06605044649851168,0.016982610057966474,29630,365,177,1743

@@ -1,0 +1,64 @@
+STAGE 2 PROCESSING SUMMARY
+========================================
+
+Total test samples: 31,915
+Toxic samples in test: 3,245 (10.17%)
+
+OVERALL METRICS:
+------------------------------
+
+TF-IDF:
+  accuracy: 0.9339
+  precision: 0.6275
+  recall: 0.8622
+  f1: 0.7264
+
+BERT:
+  accuracy: 0.9830
+  precision: 0.9214
+  recall: 0.9106
+  f1: 0.9160
+
+
+PER-TAG METRICS (F1 SCORES):
+------------------------------
+
+slang:
+  TF-IDF F1: 0.7078
+  BERT F1: 0.8842
+
+repeated_letters:
+  TF-IDF F1: 0.7591
+  BERT F1: 0.9088
+
+all_caps:
+  TF-IDF F1: 0.9114
+  BERT F1: 0.9759
+
+excessive_punctuation:
+  TF-IDF F1: 0.7163
+  BERT F1: 0.8757
+
+sarcasm:
+  TF-IDF F1: 0.5263
+  BERT F1: 0.7407
+
+
+MISCLASSIFICATION SUMMARY:
+------------------------------
+TF-IDF misclassifications: 2,108 (6.61%)
+BERT misclassifications: 542 (1.70%)
+Both models correct: 29,630
+Both models wrong: 365
+
+
+FILES GENERATED:
+------------------------------
+stage2_predictions.csv.gz - Test set predictions
+overall_metrics.csv - Overall model performance
+per_tag_metrics.csv - Performance by failure phenomenon
+stage2_summary.csv - Summary statistics
+model_overall_metrics.png - Bar chart of overall metrics
+f1_per_failure_tag.png - F1 scores by phenomenon
+confusion_matrices.png - Confusion matrices for both models
+summary_report.txt - This summary file
