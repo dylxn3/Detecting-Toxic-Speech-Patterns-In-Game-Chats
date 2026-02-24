@@ -128,6 +128,4 @@ pip install -r requirements.txt
 ### 4. Download Dataset
 
 Place the Jigsaw Toxic Comment dataset (`train.csv`) in the `data/` folder.
-
 Dataset available from Kaggle
-```
