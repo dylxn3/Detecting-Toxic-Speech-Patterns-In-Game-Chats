@@ -1,0 +1,71 @@
+STAGE 3: LINGUISTIC PATTERN ANALYSIS SUMMARY
+============================================================
+
+THESIS OBJECTIVES ADDRESSED:
+----------------------------------------
+O3: Conduct data analysis to identify linguistic and statistical patterns
+O4: Visualize toxicity trends and classification outcomes
+
+KEY FINDINGS:
+----------------------------------------
+
+1. MESSAGE LENGTH PATTERNS:
+   - Toxic comments: 52.37 words on average
+   - Non-toxic comments: 67.97 words on average
+   - Non-toxic comments tend to be longer
+   - Statistical significance: p-value = 0.0000
+
+2. VOCABULARY DIVERSITY:
+   - Toxic TTR: 0.0878
+   - Non-toxic TTR: 0.0413
+   - Toxic comments use more diverse vocabulary
+
+4. PRONOUN PATTERNS:
+   - First Person Singular:
+       Toxic: 53.96%
+       Non-toxic: 56.18%
+       Ratio: 0.96x
+   - First Person Plural:
+       Toxic: 6.63%
+       Non-toxic: 14.32%
+       Ratio: 0.46x
+   - Second Person:
+       Toxic: 68.88%
+       Non-toxic: 49.59%
+       Ratio: 1.39x
+   - Third Person:
+       Toxic: 22.06%
+       Non-toxic: 28.89%
+       Ratio: 0.76x
+
+5. PUNCTUATION PATTERNS:
+   - Multiple Exclamation:
+       Toxic: 0.00%
+       Non-toxic: 0.00%
+   - Multiple Question:
+       Toxic: 0.00%
+       Non-toxic: 0.00%
+   - Mixed Punctuation:
+       Toxic: 0.00%
+       Non-toxic: 0.00%
+   - Ellipsis:
+       Toxic: 0.00%
+       Non-toxic: 0.00%
+
+6. COMMON PHRASES:
+   Top toxic bigrams:
+     1. 'nigger nigger' (955 occurrences)
+     2. 'fuck fuck' (846 occurrences)
+     3. 'balls balls' (832 occurrences)
+     4. 'faggot faggot' (713 occurrences)
+     5. 'faggots faggots' (624 occurrences)
+
+
+FILES GENERATED:
+----------------------------------------
+linguistic_metrics.csv - Quantitative measurements
+profanity_breakdown.csv - Detailed profanity statistics
+wordcloud_toxic.png - Word cloud of toxic comments
+wordcloud_nontoxic.png - Word cloud of non-toxic comments
+linguistic_dashboard.png - Comprehensive visualization dashboard
+summary_report.txt - This summary file
